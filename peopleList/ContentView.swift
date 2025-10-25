@@ -13,7 +13,10 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            
+            NavigationView{
+                List(employees) { employees in Text(employees.name)}.navigationTitle("Our People")
+            }
         }
         .padding()
     }
@@ -22,3 +25,10 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+
+let employees = [
+    EmployeeData(id: "1", name: "Jim Doe", department: "Production", shift: "3rd", supervisor: "HImerson Doe", employeeID: "hr1234"),
+    EmployeeData(id: "2",name: "John Doe", department: "Production", shift: "3rd", supervisor: "HImerson Doe", employeeID: "hr4345"),
+    EmployeeData(id: "3",name: "lisa anne", department: "Sanitation", shift: "2nd", supervisor: "la la la", employeeID: "hr4365")
+]
