@@ -15,7 +15,11 @@ struct ContentView: View {
                 .foregroundStyle(.tint)
             
             NavigationView{
-                List(employees) { employees in Text(employees.name)}.navigationTitle("Our People")
+                List(staff) { person in Text(person.name).onTapGesture {
+                    print("Tapped: \(person.name)")
+                }
+                }
+                .navigationTitle("Our People")
             }
         }
         .padding()
@@ -27,8 +31,8 @@ struct ContentView: View {
 }
 
 
-let employees = [
-    EmployeeData(id: "1", name: "Jim Doe", department: "Production", shift: "3rd", supervisor: "HImerson Doe", employeeID: "hr1234"),
-    EmployeeData(id: "2",name: "John Doe", department: "Production", shift: "3rd", supervisor: "HImerson Doe", employeeID: "hr4345"),
-    EmployeeData(id: "3",name: "lisa anne", department: "Sanitation", shift: "2nd", supervisor: "la la la", employeeID: "hr4365")
+let staff = [
+    EmployeeData( name: "Jim Doe", department: "Production", shift: "3rd", supervisor: "HImerson Doe", employeeID: "hr1234"),
+    EmployeeData(name: "John Doe", department: "Production", shift: "3rd", supervisor: "HImerson Doe", employeeID: "hr4345"),
+    EmployeeData(name: "lisa anne", department: "Sanitation", shift: "2nd", supervisor: "la la la", employeeID: "hr4365")
 ]
